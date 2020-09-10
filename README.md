@@ -1,2 +1,2 @@
 # python-scripts
-python scripts for Complete daily tasks
+python scripts to Complete daily tasks
