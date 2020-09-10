@@ -10,15 +10,22 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+def main():
+    print(os.getcwd())
+    print(os.getcwd())
+    global number,list
+    folder_name = input("Enter folder name ===> ")
+    print('_____________________________________________________\n')
+    number = int(input("Enter the number from which the counter will start ==> "))
+    print('_______________________________________________________________________\n')
+    list = sorted(os.listdir(folder_name))
 
-folder_name = input("enter folder name ===> ")
-list = sorted(os.listdir(folder_name))
-
-os.chdir(folder_name)
+    os.chdir(folder_name)
+    show_files()
 
 
 def rename_files():
-    num = 1
+    num = number
     for file in list:
         old_name = file
         if num < 10 :
@@ -33,12 +40,41 @@ def rename_files():
         except Exception as e:
             print(bcolors.FAIL + imghdr.what(file) + {bcolors.ENDC})
 
-
         num += 1
+
+    print(f"""{bcolors.OKBLUE}
+        _____________________________________________
+        _                                           _
+        _                                           _
+        _   Do you want to rename a new season?     _
+        _   {bcolors.OKGREEN}1) rename     {bcolors.OKBLUE}                          _
+        _   {bcolors.FAIL}2)any athor button to quit  {bcolors.OKBLUE}             _
+        _____________________________________________
+          {bcolors.ENDC}""")
+    choise = input("        >>> ")
+
+
+    if choise == '1':
+        os.system('clear')
+        os.chdir('../')
+        main()
+    else:
+        os.system('clear')
+        print(f"""
+        {bcolors.FAIL}
+        ________________________________
+        _                              _
+        _          Quiting .../        _
+        ________________________________
+        {bcolors.ENDC}""")
+        time.sleep(2)
+        sys.exit()
+
+
 
 
 def show_files():
-    num = 1
+    num = number
     for i in list:
     #    print(i)
         old_name = i
@@ -91,4 +127,5 @@ def show_files():
         show_files()
 
 
-show_files()
+if __name__ == '__main__':
+    main()
