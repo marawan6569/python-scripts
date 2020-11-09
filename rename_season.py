@@ -28,12 +28,14 @@ def rename_files():
     num = number
     for file in list:
         old_name = file
+        extention = file.split('.')
+        extention = str(extention[-1])
         if num < 10 :
-            new_name = f"Episode_00{num}.mp4"
+            new_name = f"Episode_00{num}.{extention}"
         elif num < 100:
-            new_name = f"Episode_0{num}.mp4"
+            new_name = f"Episode_0{num}.{extention}"
         else:
-            new_name = f"Episode_{num}.mp4"
+            new_name = f"Episode_{num}.{extention}"
         try:
             os.rename(old_name, new_name)
             print(f"{bcolors.OKGREEN}done renaming ==> {old_name} ==> into ==> {new_name}{bcolors.ENDC}")
@@ -76,14 +78,17 @@ def rename_files():
 def show_files():
     num = number
     for i in list:
-    #    print(i)
+
+        extention = i.split('.')
+        extention = str(extention[-1])
+
         old_name = i
         if num < 10 :
-            new_name = f"Episode_00{num}.mp4"
+            new_name = f"Episode_00{num}.{extention}"
         elif num < 100:
-            new_name = f"Episode_0{num}.mp4"
+            new_name = f"Episode_0{num}.{extention}"
         else:
-            new_name = f"Episode_{num}.mp4"
+            new_name = f"Episode_{num}.{extention}"
         print(f"{bcolors.WARNING}will rename ==> {old_name} ==> into ==> {new_name}{bcolors.ENDC}")
 
         num += 1
