@@ -1,3 +1,4 @@
+# renameing episodes like > Episode_001.xxx
 import os,sys,imghdr,time
 
 class bcolors:
